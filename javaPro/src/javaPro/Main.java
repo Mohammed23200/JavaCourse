@@ -3,8 +3,7 @@ package javaPro;
 public class Main {
 
 	public static void main(String[] args) {
-		//JFileChooser = A GUI machanism that let's user choose a file (helpful for open or save files )
-		
+		//JColorChooser = A GUI machanism that let's user choose a color 
 		MyFrame frame = new MyFrame();
 	}
 
