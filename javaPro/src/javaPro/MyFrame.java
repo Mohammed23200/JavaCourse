@@ -1,51 +1,48 @@
 package javaPro;
 
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class MyFrame  extends  JFrame implements KeyListener{
+public class MyFrame  extends  JFrame implements  MouseListener{
 
 JFrame frame = new  JFrame();
 JLabel label;
 MyFrame(){
-    this.setSize(500,500);
-    this.setVisible(true);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    this.setSize(500,500);
     this.setLayout(null);
-    this.pack();
-    this.addKeyListener(this);
+
+
     label = new JLabel();
-    label.setBounds(0, 0, 100, 100);
-    label.setBackground(Color.white);
+    label.setBounds(0,0,100,100);
+    label.setBackground(Color.red);
     label.setOpaque(true);
+    label.addMouseListener(this);
+    this.setVisible(true);
 
 }
 @Override
-public void keyTyped(KeyEvent e) {
-    // TODO Auto-generated method stub
-    switch (e.getKeyChar()){
-        case 'a':label.setLocation(label.getX()-50,label.getY());
-        break;
-        case 'w':label.setLocation(label.getX(),label.getY()-50);
-        break;
-        case 's':label.setLocation(label.getX(),label.getY()+50);
-        break;
-        case 'd':label.setLocation(label.getX()+50,label.getY());
-
-    }
+public void mouseClicked(MouseEvent e) {
+    System.out.println("you clicked on the mouse ");
 }
 @Override
-public void keyPressed(KeyEvent e) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'keyPressed'");
+public void mousePressed(MouseEvent e) {
+    System.out.println("you pressed on the mouse !");
+    label.setBackground(Color.yellow);
 }
 @Override
-public void keyReleased(KeyEvent e) {
-    // TODO Auto-generated method stub
-   System.out.println("You released key char: "+e.getKeyChar());
-   System.out.println("You released key code: "+e.getKeyCode());
-} 
+public void mouseReleased(MouseEvent e) {
+    System.out.println("you released the mouse ");
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+    System.out.println("you entered the mouse !");
+}
+@Override
+public void mouseExited(MouseEvent e) {
+   System.out.println("you exited the mouse !");
+}
 }
